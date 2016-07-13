@@ -18,7 +18,7 @@ fi
 echo "Clearing existing backups and running SSPAK on $rootdir"
 
 # Clearing existing backups
-rm -fR "$backupdir"/*
+rm "$backupdir"/*
 
 # Loop through all directories and backup where appropriate
 for dir in $rootdir/*/; do
