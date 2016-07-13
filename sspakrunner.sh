@@ -25,7 +25,7 @@ for dir in $rootdir/*/; do
     dirname=${dir/"$rootdir"/""}
     dirname=${dirname/"/"/""}
     dirname=${dirname%/}
-    if [ "$dirname" != "weblite" ] && [ "$dirname" != "backups" ]; then
+    if [ "$dirname" != "weblite" ] && [ "$dirname" != "backups" ] && [ "$dirname" != "scripts" ]; then
         echo "Packing $dirname"
         /usr/local/bin/sspak save "$rootdir"/"$dirname" "$backupdir"/"$dirname"-"$datestring".sspak
     fi
