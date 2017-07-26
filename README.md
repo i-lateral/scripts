@@ -26,6 +26,14 @@ Simple script design to remove old (over 30 days) backup files
 Call this with a location (eg /var/www) and it will backup all SS sites
 using SSPAK
 
+### sspaksimplebackup.sh (cron script)
+
+Simple backup script that:
+
+* Creates a "backup" folder in the user's home folder.
+* Removes all files in the "backup" folder after 7 days.
+* Generates a new backup file (SSPAK) with today's datestamp as a name.
+
 ## Cron Usage
 
 Some scripts are intended to be run via cron. You can add these entries to your
