@@ -18,6 +18,11 @@ wget "https://silverstripe.github.io/sspak/sspak.phar";
 chmod +x sspak.phar;
 mv sspak.phar sspak;
 
+# Install SSPAK backup script
+echo "Installing SSPAK backup...";
+wget "https://raw.githubusercontent.com/i-lateral/scripts/master/sspaksimplebackup.sh";
+chmod +x sspaksimplebackup.sh;
+
 # Now add .bash_profile
 echo "Setting up Bash Profile";
 cd ~;
