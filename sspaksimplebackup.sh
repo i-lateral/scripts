@@ -19,5 +19,5 @@ find "$backupdir" -mtime +7 -exec rm {} \;
 
 # Save the selected directory
 echo "Running SSPAK on $dirname";
-sspak save $dirname $backupdir/$datestring.sspak
+./bin/sspak save $dirname $backupdir/$datestring.sspak
 
