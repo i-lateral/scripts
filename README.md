@@ -15,7 +15,8 @@ Generic backup script for MySQL databases
 
 ### hostingsetup.sh
 
-Setup a new hosting environment ready for SS site
+Single use script that can be uploaded to a new hosting environment and used
+to install required commands and perform some "pre-flight checks".
 
 ### remove-old.sh (cron script)
 
@@ -34,10 +35,18 @@ Simple backup script that:
 * Removes all files in the "backup" folder after 7 days.
 * Generates a new backup file (SSPAK) with today's datestamp as a name.
 
+### deployment.sh
+
+Simple script that can be called after SS automated deployment, this script:
+
+* Runs composer install (no dev dependencies)
+* Runs a dev/build
+* Runs a call the the root URL of the site and clears cache
+
 ## Cron Usage
 
-Some scripts are intended to be run via cron. You can add these entries to your
-crontab (preferably as root), EG:
+Some scripts are intended to be run via cron (identified above as cron scripts).
+You can add these entries to your crontab, EG:
 
 01 03 * * * /opt/backup-scripts/db-backup.sh
 
