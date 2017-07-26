@@ -1,13 +1,35 @@
-# Server Backup Scripts 
+# Server Scripts 
 
-The scripts in this repo are used for standard server backups. By default they backup everything
-to the /srv/backups directory and remove any files in that directory older than 60 days.
+The scripts in this repo are usefull for repetative server tasks (such as backups,
+setting up a new hosting account, etc).
 
-## Usage
+Some of these scripts are single use, others are designed to be run via cron.
 
-These scripts should be run via cron. You can add these entries to your crontab (preferably as
-root).
+## Scripts in this repo
+
+The following scripts are located here:
+
+### db-backup.sh (cron script)
+
+Generic backup script for MySQL databases
+
+### hostingsetup.sh
+
+Setup a new hosting environment ready for SS site
+
+### remove-old.sh (cron script)
+
+Simple script design to remove old (over 30 days) backup files 
+
+### sspakrunner.sh (cron script)
+
+Call this with a location (eg /var/www) and it will backup all SS sites
+using SSPAK
+
+## Cron Usage
+
+Some scripts are intended to be run via cron. You can add these entries to your
+crontab (preferably as root), EG:
 
 01 03 * * * /opt/backup-scripts/db-backup.sh
-01 04 * * * /opt/backup-scripts/remove-old.sh
 
