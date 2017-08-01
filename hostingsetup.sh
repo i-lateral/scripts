@@ -27,6 +27,11 @@ echo "Installing SSPAK backup...";
 wget "https://raw.githubusercontent.com/i-lateral/scripts/master/sspaksimplebackup.sh";
 chmod +x sspaksimplebackup.sh;
 
+# Install Silverstripe deployment script
+echo "Installing Silverstripe Deployment...";
+wget "https://raw.githubusercontent.com/i-lateral/scripts/master/deployment.sh";
+chmod +x deployment.sh;
+
 # Now add .bash_profile
 echo "Setting up Bash Profile";
 cd ~;
