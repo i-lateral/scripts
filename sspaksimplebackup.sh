@@ -15,7 +15,7 @@ fi
 
 # Clearing existing backups
 echo "Clearing existing backups";
-find "$backupdir" -mtime +7 -exec rm {} \;
+find "$backupdir" -mtime +5 -type f -delete;
 
 # Save the selected directory
 echo "Running SSPAK on $dirname";
