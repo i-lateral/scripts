@@ -43,6 +43,16 @@ Simple script that can be called after SS automated deployment, this script:
 * Runs a dev/build
 * Runs a call the the root URL of the site and clears cache
 
+### mysql-export.sh
+
+A simple script that exports every database on the local mysql server as a
+seperate gz file.
+
+Usefull transfering all DB's from one server to another or backing up a DB
+server.
+
+Thanks to https://mensfeld.pl/2013/04/backup-mysql-dump-all-your-mysql-databases-in-separate-files/
+
 ## Cron Usage
 
 Some scripts are intended to be run via cron (identified above as cron scripts).
