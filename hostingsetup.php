@@ -114,7 +114,7 @@ define('SS_DEFAULT_ADMIN_PASSWORD', '$adminpass');";
 
                                 <div class="form-group">
                                     <label for="dbpass">What is the DB password?</label>
-                                    <input type="text" class="form-control" name="dbpass" required>
+                                    <input type="password" class="form-control" name="dbpass" required>
                                 </div>
 
                                 <div class="form-group">
@@ -124,7 +124,7 @@ define('SS_DEFAULT_ADMIN_PASSWORD', '$adminpass');";
 
                                 <div class="form-group">
                                     <label for="adminpass">What is the SS admin password?</label>
-                                    <input type="text" class="form-control" name="adminpass" required>
+                                    <input type="password" class="form-control" name="adminpass" required>
                                 </div>
 
                                 <div class="form-group">
