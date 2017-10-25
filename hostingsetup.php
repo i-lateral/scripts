@@ -5,35 +5,35 @@ if (!empty($_POST)) {
 
     // First create bin folder
     $return[] = "Setting up bin dir.";
-    if (!file_exists('../bin')) {
-        mkdir('../bin');
+    if (!file_exists('../scripts')) {
+        mkdir('../scripts');
     }
 
     // Now download and install sake
     $return[] = "Installing Sake...";
-    copy("https://raw.githubusercontent.com/silverstripe/silverstripe-framework/3.6/sake", "../bin/sake");
-    chmod("../bin/sake", 0755);
+    copy("https://raw.githubusercontent.com/silverstripe/silverstripe-framework/3.6/sake", "../scripts/sake");
+    chmod("../scripts/sake", 0755);
 
     // Download and install sspak
     $return[] = "Installing sspak...";
-    copy("https://silverstripe.github.io/sspak/sspak.phar", "../bin/sspak");
-    chmod("../bin/sspak", 0755);
+    copy("https://silverstripe.github.io/sspak/sspak.phar", "../scripts/sspak");
+    chmod("../scripts/sspak", 0755);
 
     // Download and install SSPAK backup script
     $return[] = "Installing sspak backup...";
-    copy("https://raw.githubusercontent.com/i-lateral/scripts/master/sspaksimplebackup.sh", "../bin/sspaksimplebackup.sh");
-    chmod("../bin/sspaksimplebackup.sh", 0755);
+    copy("https://raw.githubusercontent.com/i-lateral/scripts/master/sspaksimplebackup.sh", "../scripts/sspaksimplebackup.sh");
+    chmod("../scripts/sspaksimplebackup.sh", 0755);
 
     // Install Silverstripe deployment script
     $return[] = "Installing deployment script...";
-    copy("https://raw.githubusercontent.com/i-lateral/scripts/master/deployment.sh", "../bin/deployment.sh");
-    chmod("../bin/deployment.sh", 0755);
+    copy("https://raw.githubusercontent.com/i-lateral/scripts/master/deployment.sh", "../scripts/deployment.sh");
+    chmod("../scripts/deployment.sh", 0755);
 
     // Now add .bash_profile
     $return[] = "Setting up Bash Profile";
     $bash_file = '../.bash_profile';
     $handle = fopen($bash_file, 'w') or die('Cannot open file:  ' . $bash_file);
-    $data = 'PATH=$PATH:~/bin';
+    $data = 'PATH=$PATH:~/scripts';
     fwrite($handle, $data);
     fclose($handle);
 
