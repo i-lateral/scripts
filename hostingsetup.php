@@ -3,8 +3,8 @@
 if (!empty($_POST)) {
     $return = array();
 
-    // First create bin folder
-    $return[] = "Setting up bin dir.";
+    // First create scripts folder
+    $return[] = "Setting up scripts dir.";
     if (!file_exists('../scripts')) {
         mkdir('../scripts');
     }
