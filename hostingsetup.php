@@ -82,7 +82,7 @@ define('SS_DEFAULT_ADMIN_USERNAME', '$adminemail');
 define('SS_DEFAULT_ADMIN_PASSWORD', '$adminpass');";
 
     $ss4_data = "# Base URL of site and env type
-SS_BASE_URL='http://localhost/ss-4'
+SS_BASE_URL='http://$defaultdomain'
 SS_ENVIRONMENT_TYPE='live'
 
 # Database Config
