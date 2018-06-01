@@ -53,14 +53,14 @@ if [ ! -d "$backupdir" ]; then
     mkdir $backupdir
 fi
 
-echo "Clearing backup dir";
-rm -rf ${backupdir}/*;
-
 for a in `echo 'show databases' | mysql -u${uname} -p${pword} | grep -v Database | grep -v information_schema`; do
   echo "Dumping database: $a"
 
   mysqldump -u${uname} -p${pword} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
 done
+
+# remove backups older than 1 days
+find ${backupdir} -mtime +1 -exec rm {} \;
 
 # sync to amazon
 s3cmd sync ${backupdir} s3://${bucket}
