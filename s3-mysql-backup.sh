@@ -31,8 +31,7 @@ else
 fi
 
 if [ -z "$2" ]; then
-  echo "No password provided";
-  exit;
+  pword="";
 else
   pword=$2;
 fi
@@ -55,8 +54,13 @@ fi
 
 for a in `echo 'show databases' | mysql -u${uname} -p${pword} | grep -v Database | grep -v information_schema`; do
   echo "Dumping database: $a"
-
-  mysqldump -u${uname} -p${pword} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
+  if [ -z "$pword" ]; then
+    # Password not set
+    mysqldump -u${uname} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
+  else
+    # Password set
+    mysqldump -u${uname} -p${pword} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
+  fi
 done
 
 # remove backups older than 1 days
