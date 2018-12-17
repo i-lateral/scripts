@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Simple script that runs SSPAK on SS projects in a folder
+# and moves them to a backup location
+#
+# This scripts accepts two arguments:
+#
+# 1. Required: The location on the filesystem of the projects
+# 2. Optional: a custom location of sspak (if not /usr/local/bin/sspak)
+#
 datestring="`date +%Y`-`date +%m`-`date +%d`"
 rootdir=${1%/}
 backupdir="$rootdir"/backups
@@ -8,6 +16,13 @@ backupdir="$rootdir"/backups
 if [ -z "$rootdir" ]; then
     echo "You need to proved a path to scan"
     exit
+fi
+
+# check if we are using a custom location for SSPAK
+if [ -z "$2" ]; then
+  sspakloc="/usr/local/bin/sspak";
+else
+  sspakloc=$2;
 fi
 
 # Make backups dir is not existing
@@ -27,7 +42,7 @@ for dir in $rootdir/*/; do
     dirname=${dirname%/}
     if [ "$dirname" != "weblite" ] && [ "$dirname" != "backups" ] && [ "$dirname" != "scripts" ]; then
         echo "Packing $dirname"
-        /usr/local/bin/sspak save "$rootdir"/"$dirname" "$backupdir"/"$dirname"-"$datestring".sspak
+        ${sspakloc} save "$rootdir"/"$dirname" "$backupdir"/"$dirname"-"$datestring".sspak
     fi
 done
 
