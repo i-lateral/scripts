@@ -56,5 +56,9 @@ find ${backupdir} -mtime +1 -exec rm {} \;
 
 # sync to amazon
 echo "Syncing with $bucket";
-s3cmd sync ${backupdir} s3://${bucket} --delete-after
+s3cmd sync ${backupdir} s3://${bucket} --delete-after --no-progress
+
+# Remove backup file
+echo "Remving backup $filename at $backupdir";
+rm -f ${backupdir}${filename}-${datestring}.tar.gz
 
