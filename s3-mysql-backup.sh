@@ -56,10 +56,10 @@ for a in `echo 'show databases' | mysql -u${uname} -p${pword} | grep -v Database
   echo "Dumping database: $a"
   if [ -z "$pword" ]; then
     # Password not set
-    mysqldump -u${uname} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
+    mysqldump -u${uname} --create-options --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
   else
     # Password set
-    mysqldump -u${uname} -p${pword} --compact --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
+    mysqldump -u${uname} -p${pword} --create-options --complete-insert --single-transaction "${a}" > "${backupdir}${a}-${datestring}".sql;
   fi
 done
 
