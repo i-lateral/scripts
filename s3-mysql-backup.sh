@@ -9,8 +9,8 @@
 # This script expects three arguments:
 #
 # - username: The database username
-# - password: the database password
 # - bucket: name of the S3 bucket
+# - password: the database password
 #
 # You can also provide an optional forth argument:
 #
@@ -31,16 +31,16 @@ else
 fi
 
 if [ -z "$2" ]; then
-  pword="";
-else
-  pword=$2;
-fi
-
-if [ -z "$3" ]; then
   echo "No s3 bucket name provided";
   exit;
 else
-  bucket=$3;
+  bucket=$2;
+fi
+
+if [ -z "$3" ]; then
+  pword="";
+else
+  pword=$3;
 fi
 
 if [ "$4" ]; then
